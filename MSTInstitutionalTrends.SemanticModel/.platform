@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "MSTInstitutionalTrends"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6341f38c-de60-4ecc-8bff-b432781fccc2"
+  }
+}

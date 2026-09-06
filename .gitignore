@@ -1,0 +1,19 @@
+# Power BI local/cache files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Raw source data
+data/raw/*
+!data/raw/README.md
+
+# Intermediate data
+data/interim/*
+!data/interim/README.md
+
+# Office temp files
+~$*.xlsx
+~$*.xls
+
+# OS/editor junk
+.DS_Store
+Thumbs.db

@@ -1,1 +1,1 @@
-# data
+All source data are publicly available from Missouri S&T Institutional Research and Data Management and the University of Missouri System.

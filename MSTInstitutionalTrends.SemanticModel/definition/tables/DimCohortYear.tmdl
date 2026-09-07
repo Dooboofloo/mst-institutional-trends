@@ -1,0 +1,29 @@
+table DimCohortYear
+	lineageTag: 2e7fec9e-4e8a-4b07-a110-efa29f2c75fe
+
+	column CohortYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 371c90bf-78fb-4a31-a3c4-9b192a4f7219
+		summarizeBy: none
+		sourceColumn: CohortYear
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCohortYear = m
+		mode: import
+		queryGroup: '03 Model'
+		source =
+				let
+				    Source = FactRetention,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"CohortYear"}),
+				    #"Appended Query" = Table.Combine({#"Removed Other Columns", TmpFactGraduationDuplicate}),
+				    #"Removed Duplicates" = Table.Distinct(#"Appended Query"),
+				    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"CohortYear", Order.Ascending}})
+				in
+				    #"Sorted Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

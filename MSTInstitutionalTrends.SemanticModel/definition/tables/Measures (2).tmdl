@@ -192,6 +192,95 @@ table 'Measures (2)'
 			    )
 		lineageTag: 99244b08-170d-46ca-95d7-edf19c23ae39
 
+	measure 'Overall Retention Rate' =
+			
+			CALCULATE(
+			    MAX(FactRetention[RetentionRate]),
+			    FactRetention[AttendanceStatus] = "All"
+			)
+		lineageTag: 3e56b3bc-6aa2-4a13-92cf-3ac9de9f9fde
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Graduation Rate' = MAX(FactGraduation[GraduationRate])
+		lineageTag: 3e9ca392-7574-4700-b3ea-4a2c2bba7a6b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '4-Year Graduation Rate' =
+			
+			CALCULATE(
+			    [Graduation Rate],
+			    FactGraduation[Outcome] = "4-Year Graduation Rate"
+			)
+		lineageTag: 2388bf9c-cf55-4912-a7ff-ec5ca8f8c908
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '6-Year Graduation Rate' =
+			
+			CALCULATE(
+			    [Graduation Rate],
+			    FactGraduation[Outcome] = "6-Year Graduation Rate"
+			)
+		lineageTag: deba1730-4716-48cd-8af0-ce12f4bf35e1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Latest Retention Cohort' =
+			
+			MAXX(
+			    FILTER(
+			        ALL(FactRetention),
+			        FactRetention[AttendanceStatus] = "All"
+			    ),
+			    FactRetention[CohortYear]
+			)
+		formatString: 0
+		lineageTag: a631ba62-e259-43bb-b43e-ddc8ab86b158
+
+	measure 'Latest Graduation Cohort' =
+			
+			MAXX(
+			    ALL(FactGraduation),
+			    FactGraduation[CohortYear]
+			)
+		formatString: 0
+		lineageTag: 500500d8-d7d7-435b-800d-ca3514704c10
+
+	measure 'Latest Retention Rate' =
+			
+			VAR LatestCohort = [Latest Retention Cohort]
+			RETURN CALCULATE(
+			    [Overall Retention Rate],
+			    REMOVEFILTERS(DimCohortYear),
+			    DimCohortYear[CohortYear] = LatestCohort
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: fb0772fe-ea79-4e14-80ea-0ccd194eed93
+
+	measure 'Latest 4-Year Graduation Rate' =
+			
+			VAR LatestCohort = [Latest Graduation Cohort]
+			RETURN CALCULATE(
+			    [4-Year Graduation Rate],
+			    REMOVEFILTERS(DimCohortYear),
+			    DimCohortYear[CohortYear] = LatestCohort
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ddd5daa7-3193-4797-a3ef-5a88e642c65c
+
+	measure 'Latest 6-Year Graduation Rate' =
+			
+			VAR LatestCohort = [Latest Graduation Cohort]
+			RETURN CALCULATE(
+			    [6-Year Graduation Rate],
+			    REMOVEFILTERS(DimCohortYear),
+			    DimCohortYear[CohortYear] = LatestCohort
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3297e507-179a-4657-b440-346b39559d36
+
 	partition 'Measures (2)' = m
 		mode: import
 		source =

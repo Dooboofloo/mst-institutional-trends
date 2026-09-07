@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "59df9a5f5e4844cbf414",
+  "name": "a75fe2ab8ce03d10c07d",
   "position": {
-    "x": 1144,
-    "y": 1040,
-    "z": 2000,
-    "height": 40,
-    "width": 750,
-    "tabOrder": 2000
+    "x": 0,
+    "y": 1055,
+    "z": 2001,
+    "height": 25,
+    "width": 1920,
+    "tabOrder": 2001
   },
   "visual": {
     "visualType": "textbox",
@@ -19,13 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "Source: Missouri S&T Institutional Research and Data Management.",
+                    "value": "Source: Missouri S&T Institutional Research and Data Management / IPEDS. Retention reflects return in the following fall; graduation rates are reported by entering cohort. Latest graduation cohorts lag retention because outcomes require longer observation periods.",
                     "textStyle": {
-                      "fontSize": "14pt"
+                      "fontSize": "12pt"
                     }
                   }
                 ],
-                "horizontalTextAlignment": "right"
+                "horizontalTextAlignment": "center"
               }
             ]
           }

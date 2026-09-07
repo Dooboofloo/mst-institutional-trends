@@ -6,3 +6,11 @@ relationship 22b93192-0021-c94b-5756-b609fba7775c
 	fromColumn: FactEnrollmentSummary.Year
 	toColumn: DimFallTerm.Year
 
+relationship 8c7db646-d58c-fa1f-4746-6b75032ab62a
+	fromColumn: FactRetention.CohortYear
+	toColumn: DimCohortYear.CohortYear
+
+relationship 9eb304d4-c35e-acaa-53bd-31c7aee080d3
+	fromColumn: FactGraduation.CohortYear
+	toColumn: DimCohortYear.CohortYear
+

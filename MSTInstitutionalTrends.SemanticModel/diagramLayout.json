@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 138.39999389648438,
+        "x": 653.93058031884743,
         "y": 0
       },
       "nodes": [
         {
           "location": {
             "x": 334.18475118063,
-            "y": 11.103504350980927
+            "y": 36.103504350980927
           },
           "nodeIndex": "DimFallTerm",
           "nodeLineageTag": "6c3e7bbc-9a4d-4eb1-bd78-c0333c1744fc",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 578,
-            "y": 167.16861352832274
+            "y": 192.16861352832274
           },
           "nodeIndex": "FactEnrollmentDetail",
           "nodeLineageTag": "4ac3f26e-c960-4c75-9a89-648c354669de",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 24.36163941536006,
-            "y": 160.16861352832274
+            "y": 185.16861352832274
           },
           "nodeIndex": "FactEnrollmentSummary",
           "nodeLineageTag": "c29edfee-cce2-44ee-8d09-838679c41a74",
@@ -50,7 +50,7 @@
         {
           "location": {
             "x": 748.63836058463994,
-            "y": 0
+            "y": 25
           },
           "nodeIndex": "Measures (2)",
           "nodeLineageTag": "1f13b694-e69c-4a9c-9795-231ab7187b3d",
@@ -59,10 +59,49 @@
             "width": 234
           },
           "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1142.9153571692798,
+            "y": 290.65416276416136
+          },
+          "nodeIndex": "FactRetention",
+          "nodeLineageTag": "a14c00f1-53cd-410c-b71d-9aa66cf69b9b",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1355.6681027539198,
+            "y": 21.549378764161361
+          },
+          "nodeIndex": "DimCohortYear",
+          "nodeLineageTag": "2e7fec9e-4e8a-4b07-a110-efa29f2c75fe",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1600.6739408336919,
+            "y": 292.70828572736673
+          },
+          "nodeIndex": "FactGraduation",
+          "nodeLineageTag": "970ac184-d3a2-4805-adfe-6c0aecd01ed6",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 70.955543900968834,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

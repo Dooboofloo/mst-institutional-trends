@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "e737874955992764af36",
+  "name": "5debd8bafa6dfe4e03be",
   "position": {
-    "x": 960,
+    "x": 0,
     "y": 0,
-    "z": 4000,
-    "height": 128.33333333333334,
-    "width": 480,
+    "z": 0,
+    "height": 127.6183844011142,
+    "width": 640,
     "tabOrder": 0
   },
   "visual": {
@@ -23,12 +23,11 @@
                       "Entity": "Measures (2)"
                     }
                   },
-                  "Property": "Latest Graduate Enrollment"
+                  "Property": "Latest Retention Rate"
                 }
               },
-              "queryRef": "Measures (2).Latest Graduate Enrollment",
-              "nativeQueryRef": "Latest Graduate Enrollment",
-              "format": "G"
+              "queryRef": "Measures (2).Latest Retention Rate",
+              "nativeQueryRef": "Latest Retention Rate"
             }
           ]
         }
@@ -43,7 +42,7 @@
                     "Entity": "Measures (2)"
                   }
                 },
-                "Property": "Latest Graduate Enrollment"
+                "Property": "Latest Retention Rate"
               }
             },
             "direction": "Descending"
@@ -68,29 +67,6 @@
             "id": "default"
           }
         }
-      ],
-      "value": [
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Measures (2).Latest Graduate Enrollment"
-          }
-        }
       ]
     },
     "visualContainerObjects": {
@@ -100,7 +76,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Graduate Enrollment'"
+                  "Value": "'1-Year Retention'"
                 }
               }
             }
@@ -119,9 +95,22 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fall 2024 Cohort'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "fc434c296fb761691b53"
+  "parentGroupName": "4d688fa51032163dd440"
 }

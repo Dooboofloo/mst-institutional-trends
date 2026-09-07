@@ -1,0 +1,68 @@
+table FactRetention
+	lineageTag: a14c00f1-53cd-410c-b71d-9aa66cf69b9b
+
+	column AttendanceStatus
+		dataType: string
+		lineageTag: 12f3f7d8-b9d4-4dfa-b64c-7209e7ef4463
+		summarizeBy: none
+		sourceColumn: AttendanceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column CohortTerm
+		dataType: string
+		lineageTag: fb21049c-2fa5-409e-b670-ccc5d10da137
+		summarizeBy: none
+		sourceColumn: CohortTerm
+
+		annotation SummarizationSetBy = Automatic
+
+	column CohortYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 36e58e73-8792-48ce-b235-3a4f1a3415df
+		summarizeBy: none
+		sourceColumn: CohortYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column RetentionRate
+		dataType: double
+		lineageTag: 0bf4ae47-ce9e-4691-b841-7e4122143ba5
+		summarizeBy: sum
+		sourceColumn: RetentionRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactRetention = m
+		mode: import
+		queryGroup: '03 Model'
+		source =
+				let
+				    Source = Raw_RetentionRates,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"TABLE 1.34", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", "Column21", "Column22", "Column23", "Column24", "Column25"}),
+				    #"Removed Top Rows" = Table.Skip(#"Removed Other Columns",4),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Column1", type any}, {"Column2", type text}, {"Column3", type text}, {"Fall 2003", type any}, {"Fall 2004", type any}, {"Fall 2005", type any}, {"Fall 2006", type any}, {"Fall 2007", type any}, {"Fall 2008", type any}, {"Fall 2009", type any}, {"Fall 2010", type any}, {"Fall 2011", type any}, {"Fall 2012", type any}, {"Fall 2013", type any}, {"Fall 2014", type any}, {"Fall 2015", type any}, {"Fall 2016", type any}, {"Fall 2017", type any}, {"Fall 2018", type any}, {"Fall 2019", type any}, {"Fall 2020", type any}, {"Fall 2021", type any}, {"Fall 2022", type any}, {"Fall 2023", type any}, {"Fall 2024", type any}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column2", "Campus"}, {"Column3", "Attendance Status"}}),
+				    #"Filled Down" = Table.FillDown(#"Renamed Columns",{"Campus"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Filled Down", each ([Campus] = "MISSOURI S&T") and ([Attendance Status] <> null)),
+				    #"Trimmed Text" = Table.TransformColumns(#"Filtered Rows",{{"Attendance Status", Text.Trim, type text}}),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Trimmed Text", {"Campus", "Attendance Status"}, "Attribute", "Value"),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "CohortTerm"}, {"Value", "RetentionRate"}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Renamed Columns1", "CohortTerm", "CohortTerm - Copy"),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Duplicated Column",{{"CohortTerm - Copy", "CohortYear"}}),
+				    #"Extracted Text After Delimiter" = Table.TransformColumns(#"Renamed Columns2", {{"CohortYear", each Text.AfterDelimiter(_, "Fall "), type text}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Extracted Text After Delimiter",{{"CohortYear", Int64.Type}, {"RetentionRate", type number}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type1",{"Campus"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"Attendance Status", "CohortTerm", "CohortYear", "RetentionRate"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Reordered Columns",{{"Attendance Status", "AttendanceStatus"}})
+				in
+				    #"Renamed Columns3"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

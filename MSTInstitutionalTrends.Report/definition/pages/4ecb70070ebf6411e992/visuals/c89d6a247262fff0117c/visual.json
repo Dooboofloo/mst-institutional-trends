@@ -1,19 +1,37 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "7a7dd04397860f10df7b",
+  "name": "c89d6a247262fff0117c",
   "position": {
     "x": 0,
     "y": 0,
-    "z": 2000,
-    "height": 128.33333333333334,
-    "width": 480,
-    "tabOrder": 3000
+    "z": 0,
+    "height": 802.12044958899537,
+    "width": 960
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "lineChart",
     "query": {
       "queryState": {
-        "Data": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCohortYear"
+                    }
+                  },
+                  "Property": "CohortYear"
+                }
+              },
+              "queryRef": "DimCohortYear.CohortYear",
+              "nativeQueryRef": "CohortYear",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
           "projections": [
             {
               "field": {
@@ -23,12 +41,11 @@
                       "Entity": "Measures (2)"
                     }
                   },
-                  "Property": "Latest Total Enrollment"
+                  "Property": "Overall Retention Rate"
                 }
               },
-              "queryRef": "Measures (2).Latest Total Enrollment",
-              "nativeQueryRef": "Latest Total Enrollment",
-              "format": "G"
+              "queryRef": "Measures (2).Overall Retention Rate",
+              "nativeQueryRef": "Overall Retention Rate"
             }
           ]
         }
@@ -43,7 +60,7 @@
                     "Entity": "Measures (2)"
                   }
                 },
-                "Property": "Latest Total Enrollment"
+                "Property": "Overall Retention Rate"
               }
             },
             "direction": "Descending"
@@ -52,8 +69,8 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "label": [
+    "visualContainerObjects": {
+      "subTitle": [
         {
           "properties": {
             "show": {
@@ -63,57 +80,16 @@
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],
-      "value": [
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Measures (2).Latest Total Enrollment"
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
       "title": [
         {
           "properties": {
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Total Enrollment'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeader": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "'1-Year Retention by Cohort'"
                 }
               }
             }
@@ -123,5 +99,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "fc434c296fb761691b53"
+  "parentGroupName": "a9d2ae475526f3469c8e"
 }

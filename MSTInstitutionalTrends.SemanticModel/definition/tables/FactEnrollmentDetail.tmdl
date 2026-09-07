@@ -1,0 +1,60 @@
+table FactEnrollmentDetail
+	lineageTag: 4ac3f26e-c960-4c75-9a89-648c354669de
+
+	column StudentLevel
+		dataType: string
+		lineageTag: 0cc923eb-4a52-48da-b695-9b45895e2933
+		summarizeBy: none
+		sourceColumn: StudentLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 104548eb-8a50-4605-8414-9d8713cc0e38
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Term
+		dataType: string
+		lineageTag: b521992f-2ba2-46cf-8001-2251d5076f64
+		summarizeBy: none
+		sourceColumn: Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: fcac22a9-7cc8-48d2-bd15-1ad07189f784
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enrollment
+		dataType: int64
+		formatString: 0
+		lineageTag: c0320a05-4b6a-496b-a9c8-028ec3e9d8d1
+		summarizeBy: sum
+		sourceColumn: Enrollment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactEnrollmentDetail = m
+		mode: import
+		queryGroup: '03 Model'
+		source =
+				let
+				    Source = Stg_EnrollmentHeadcount,
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([RowType] = "Detail")),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"RowType"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,36 @@
+table DimFallTerm
+	lineageTag: 6c3e7bbc-9a4d-4eb1-bd78-c0333c1744fc
+
+	column Term
+		dataType: string
+		lineageTag: cace1e53-fee2-4fb0-8be4-7975bc7c3f63
+		summarizeBy: none
+		sourceColumn: Term
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 156cb4d5-ffd8-4a73-9adb-3193d293f339
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFallTerm = m
+		mode: import
+		queryGroup: '03 Model'
+		source =
+				let
+				    Source = FactEnrollmentSummary,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Term", "Year"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns", {"Term"}),
+				    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"Year", Order.Ascending}})
+				in
+				    #"Sorted Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

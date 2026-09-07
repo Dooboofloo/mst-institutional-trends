@@ -1,0 +1,8 @@
+relationship AutoDetected_871fc6af-b516-4272-8391-ca30e135c38e
+	fromColumn: FactEnrollmentSummary.Term
+	toColumn: DimFallTerm.Term
+
+relationship AutoDetected_211db74d-9f87-410a-80f7-266a44b8dff3
+	fromColumn: FactEnrollmentDetail.Term
+	toColumn: DimFallTerm.Term
+

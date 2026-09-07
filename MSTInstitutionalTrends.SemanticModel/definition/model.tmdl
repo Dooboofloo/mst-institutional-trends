@@ -7,9 +7,31 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
+queryGroup '01 Sources'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup '02 Staging'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup '03 Model'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup '04 QA'
+
+	annotation PBI_QueryGroupOrder = 3
+
 annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["Raw_FallEnrollment_ST","Stg_EnrollmentHeadcount","FactEnrollmentSummary","FactEnrollmentDetail","DimFallTerm","Audit_EnrollmentCoverage","Audit_EnrollmentCoverage_1992"]
+
+ref table FactEnrollmentSummary
+ref table FactEnrollmentDetail
+ref table DimFallTerm
 
 ref cultureInfo en-US
 

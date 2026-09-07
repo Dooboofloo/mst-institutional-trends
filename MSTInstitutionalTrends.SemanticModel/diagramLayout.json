@@ -7,7 +7,47 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 334.18475118063,
+            "y": 4.93489082265819
+          },
+          "nodeIndex": "DimFallTerm",
+          "nodeLineageTag": "6c3e7bbc-9a4d-4eb1-bd78-c0333c1744fc",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -50.000000000000014
+          },
+          "nodeIndex": "FactEnrollmentDetail",
+          "nodeLineageTag": "4ac3f26e-c960-4c75-9a89-648c354669de",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.36163941536006,
+            "y": -17.740116544906698
+          },
+          "nodeIndex": "FactEnrollmentSummary",
+          "nodeLineageTag": "c29edfee-cce2-44ee-8d09-838679c41a74",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
       "name": "All tables",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,

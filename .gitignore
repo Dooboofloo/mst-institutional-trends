@@ -6,10 +6,6 @@
 data/raw/*
 !data/raw/README.md
 
-# Intermediate data
-data/interim/*
-!data/interim/README.md
-
 # Office temp files
 ~$*.xlsx
 ~$*.xls

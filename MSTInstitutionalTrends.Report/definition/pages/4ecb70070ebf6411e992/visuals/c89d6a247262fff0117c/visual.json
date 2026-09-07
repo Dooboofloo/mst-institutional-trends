@@ -38,7 +38,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "Overall Retention Rate"
@@ -57,7 +57,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures (2)"
+                    "Entity": "MyMeasures"
                   }
                 },
                 "Property": "Overall Retention Rate"

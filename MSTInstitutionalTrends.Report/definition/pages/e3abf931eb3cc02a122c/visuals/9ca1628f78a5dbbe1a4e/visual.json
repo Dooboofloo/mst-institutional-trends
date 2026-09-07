@@ -57,7 +57,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "Detailed Enrollment"
@@ -109,7 +109,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "Composition Trend Title"

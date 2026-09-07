@@ -17,7 +17,7 @@ table DimCohortYear
 				let
 				    Source = FactRetention,
 				    #"Removed Other Columns" = Table.SelectColumns(Source,{"CohortYear"}),
-				    #"Appended Query" = Table.Combine({#"Removed Other Columns", TmpFactGraduationDuplicate}),
+				    #"Appended Query" = Table.Combine({#"Removed Other Columns", Stg_GraduationCohortYears}),
 				    #"Removed Duplicates" = Table.Distinct(#"Appended Query"),
 				    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"CohortYear", Order.Ascending}})
 				in

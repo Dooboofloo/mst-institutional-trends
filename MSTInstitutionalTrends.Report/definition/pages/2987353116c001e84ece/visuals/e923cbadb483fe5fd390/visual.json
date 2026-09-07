@@ -39,7 +39,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "Total Enrollment"
@@ -53,7 +53,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "Undergraduate Enrollment"
@@ -67,7 +67,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "Graduate Enrollment"
@@ -86,7 +86,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures (2)"
+                    "Entity": "MyMeasures"
                   }
                 },
                 "Property": "Total Enrollment"

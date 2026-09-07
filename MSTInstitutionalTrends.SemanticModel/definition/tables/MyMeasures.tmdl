@@ -1,8 +1,9 @@
-table 'Measures (2)'
+table MyMeasures
 	lineageTag: 1f13b694-e69c-4a9c-9795-231ab7187b3d
 
 	measure Enrollment = SUM(FactEnrollmentSummary[Enrollment])
 		formatString: 0
+		displayFolder: Enrollment\Core
 		lineageTag: 0e2b3758-bd17-4aae-8c27-63c12a832859
 
 		changedProperty = IsHidden
@@ -14,6 +15,7 @@ table 'Measures (2)'
 			    FactEnrollmentSummary[StudentLevel] = "All Students"
 			)
 		formatString: 0
+		displayFolder: Enrollment\Core
 		lineageTag: ac391b37-455c-4a17-bef2-56cdfd9e0aa9
 
 		changedProperty = IsHidden
@@ -25,6 +27,7 @@ table 'Measures (2)'
 			    FactEnrollmentSummary[StudentLevel] = "Undergraduate"
 			)
 		formatString: 0
+		displayFolder: Enrollment\Core
 		lineageTag: aa2bfeea-2181-47d2-aa72-2eb180ff3547
 
 		changedProperty = IsHidden
@@ -36,12 +39,14 @@ table 'Measures (2)'
 			    FactEnrollmentSummary[StudentLevel] = "Graduate"
 			)
 		formatString: 0
+		displayFolder: Enrollment\Core
 		lineageTag: d2a5c66e-10f5-4d16-a663-c3ab105c44d5
 
 		changedProperty = IsHidden
 
 	measure 'Detailed Enrollment' = SUM(FactEnrollmentDetail[Enrollment])
 		formatString: 0
+		displayFolder: Enrollment\Composition
 		lineageTag: 946599ad-527d-4a98-b4aa-4028eb806995
 
 		changedProperty = IsHidden
@@ -53,6 +58,7 @@ table 'Measures (2)'
 			    DimFallTerm[Year]
 			)
 		formatString: 0
+		displayFolder: Enrollment\Change
 		lineageTag: 8a9de536-c014-462e-9333-c18642e722f3
 
 		changedProperty = IsHidden
@@ -65,6 +71,7 @@ table 'Measures (2)'
 			    DimFallTerm[Year] = LatestYear
 			)
 		formatString: 0
+		displayFolder: Enrollment\Change
 		lineageTag: 734e762c-f979-4c0b-be44-dc3a1a408b20
 
 		changedProperty = IsHidden
@@ -77,6 +84,7 @@ table 'Measures (2)'
 			    DimFallTerm[Year] = LatestYear
 			)
 		formatString: 0
+		displayFolder: Enrollment\Change
 		lineageTag: e94b8b2d-48e3-4742-9d58-5d64155955f4
 
 		changedProperty = IsHidden
@@ -89,6 +97,7 @@ table 'Measures (2)'
 			    DimFallTerm[Year] = LatestYear
 			)
 		formatString: 0
+		displayFolder: Enrollment\Change
 		lineageTag: 417df597-1cd2-4ec4-a26b-7c1b1b91e71c
 
 		changedProperty = IsHidden
@@ -104,6 +113,7 @@ table 'Measures (2)'
 			    DimFallTerm[Year]
 			)
 		formatString: 0
+		displayFolder: Display\Helpers
 		lineageTag: b06677f5-dcc6-4cc6-a12b-3addfaf1eaa2
 
 	measure 'Previous Total Enrollment' =
@@ -115,10 +125,12 @@ table 'Measures (2)'
 			    DimFallTerm[Year] = PreviousReportedYear
 			)
 		formatString: 0
+		displayFolder: Enrollment\Change
 		lineageTag: 1ca981e9-d137-4cc8-9f34-b3e8a21785e5
 
 	measure 'Latest Enrollment Change' = [Latest Total Enrollment] - [Previous Total Enrollment]
 		formatString: 0
+		displayFolder: Enrollment\Change
 		lineageTag: 287f3988-cabd-4cf0-b584-661afb4caac4
 
 	measure 'Latest Enrollment Change %' =
@@ -128,6 +140,7 @@ table 'Measures (2)'
 			    [Previous Total Enrollment]
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Enrollment\Change
 		lineageTag: 341e0b56-66e7-4b79-9de9-fa1bc7c9cded
 
 	measure 'Latest Enrollment Change Display' =
@@ -136,6 +149,7 @@ table 'Measures (2)'
 			    [Latest Enrollment Change %],
 			    "+0.0%;-0.0%;0.0%"
 			)
+		displayFolder: Display\Helpers
 		lineageTag: a15aa8c9-6f42-4474-b5a3-18f12898fe97
 
 	measure 'Enrollment Share' =
@@ -148,6 +162,7 @@ table 'Measures (2)'
 			    )
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Enrollment\Composition
 		lineageTag: 15963e16-6497-4dbe-a4ae-1a6938c3ffc4
 
 	measure 'Selected Focus Year' =
@@ -157,6 +172,7 @@ table 'Measures (2)'
 			    [Latest Enrollment Year]
 			)
 		formatString: 0
+		displayFolder: Display\Helpers
 		lineageTag: 2e4847f3-1b39-414f-b88c-0f0cc2ad0dae
 
 	measure 'Category Snapshot Title' =
@@ -175,6 +191,7 @@ table 'Measures (2)'
 			        " — " & StdntLevel,
 			        ""
 			    )
+		displayFolder: Display\Titles
 		lineageTag: 7851c111-3868-4e58-8ee4-5d01821f0923
 
 	measure 'Composition Trend Title' =
@@ -190,6 +207,7 @@ table 'Measures (2)'
 			        "Enrollment Share by Category Over Time",
 			        StdntLevel & " Enrollment Share by Category Over Time"
 			    )
+		displayFolder: Display\Titles
 		lineageTag: 99244b08-170d-46ca-95d7-edf19c23ae39
 
 	measure 'Overall Retention Rate' =
@@ -199,9 +217,11 @@ table 'Measures (2)'
 			    FactRetention[AttendanceStatus] = "All"
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outcomes\Retention
 		lineageTag: 3e56b3bc-6aa2-4a13-92cf-3ac9de9f9fde
 
 	measure 'Graduation Rate' = MAX(FactGraduation[GraduationRate])
+		displayFolder: Outcomes\Graduation
 		lineageTag: 3e9ca392-7574-4700-b3ea-4a2c2bba7a6b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -213,6 +233,7 @@ table 'Measures (2)'
 			    FactGraduation[Outcome] = "4-Year Graduation Rate"
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outcomes\Graduation
 		lineageTag: 2388bf9c-cf55-4912-a7ff-ec5ca8f8c908
 
 	measure '6-Year Graduation Rate' =
@@ -222,6 +243,7 @@ table 'Measures (2)'
 			    FactGraduation[Outcome] = "6-Year Graduation Rate"
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outcomes\Graduation
 		lineageTag: deba1730-4716-48cd-8af0-ce12f4bf35e1
 
 	measure 'Latest Retention Cohort' =
@@ -234,6 +256,7 @@ table 'Measures (2)'
 			    FactRetention[CohortYear]
 			)
 		formatString: 0
+		displayFolder: Outcomes\Retention
 		lineageTag: a631ba62-e259-43bb-b43e-ddc8ab86b158
 
 	measure 'Latest Graduation Cohort' =
@@ -243,6 +266,7 @@ table 'Measures (2)'
 			    FactGraduation[CohortYear]
 			)
 		formatString: 0
+		displayFolder: Outcomes\Graduation
 		lineageTag: 500500d8-d7d7-435b-800d-ca3514704c10
 
 	measure 'Latest Retention Rate' =
@@ -254,6 +278,7 @@ table 'Measures (2)'
 			    DimCohortYear[CohortYear] = LatestCohort
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outcomes\Retention
 		lineageTag: fb0772fe-ea79-4e14-80ea-0ccd194eed93
 
 	measure 'Latest 4-Year Graduation Rate' =
@@ -265,6 +290,7 @@ table 'Measures (2)'
 			    DimCohortYear[CohortYear] = LatestCohort
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outcomes\Graduation
 		lineageTag: ddd5daa7-3193-4797-a3ef-5a88e642c65c
 
 	measure 'Latest 6-Year Graduation Rate' =
@@ -276,9 +302,10 @@ table 'Measures (2)'
 			    DimCohortYear[CohortYear] = LatestCohort
 			)
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Outcomes\Graduation
 		lineageTag: 3297e507-179a-4657-b440-346b39559d36
 
-	partition 'Measures (2)' = m
+	partition MyMeasures = m
 		mode: import
 		source =
 				let

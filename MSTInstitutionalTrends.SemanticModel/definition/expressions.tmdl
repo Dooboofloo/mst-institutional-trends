@@ -91,14 +91,14 @@ expression Raw_RetentionRates =
 
 	annotation PBI_ResultType = Table
 
-expression TmpFactGraduationDuplicate =
+expression Stg_GraduationCohortYears =
 		let
 		    Source = FactGraduation,
 		    #"Removed Other Columns" = Table.SelectColumns(Source,{"CohortYear"})
 		in
 		    #"Removed Other Columns"
 	lineageTag: bff95864-a59e-4485-b4c7-eebfdc999444
-	queryGroup: '03 Model'
+	queryGroup: '02 Staging'
 
 	annotation PBI_NavigationStepName = Navigation
 

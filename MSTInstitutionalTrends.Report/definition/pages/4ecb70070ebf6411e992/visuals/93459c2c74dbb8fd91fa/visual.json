@@ -38,7 +38,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "4-Year Graduation Rate"
@@ -52,7 +52,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "6-Year Graduation Rate"
@@ -71,7 +71,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures (2)"
+                    "Entity": "MyMeasures"
                   }
                 },
                 "Property": "4-Year Graduation Rate"

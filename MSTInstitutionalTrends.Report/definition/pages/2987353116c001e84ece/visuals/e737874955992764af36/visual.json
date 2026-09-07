@@ -20,7 +20,7 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures (2)"
+                      "Entity": "MyMeasures"
                     }
                   },
                   "Property": "Latest Graduate Enrollment"
@@ -40,7 +40,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures (2)"
+                    "Entity": "MyMeasures"
                   }
                 },
                 "Property": "Latest Graduate Enrollment"

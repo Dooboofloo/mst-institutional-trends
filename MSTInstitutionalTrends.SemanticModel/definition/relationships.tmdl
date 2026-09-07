@@ -1,8 +1,8 @@
-relationship 123d6050-a521-65eb-c895-02988355cc49
-	fromColumn: FactEnrollmentSummary.Year
+relationship db0c3e67-1951-8cae-a167-c7bbafcd4a5b
+	fromColumn: FactEnrollmentDetail.Year
 	toColumn: DimFallTerm.Year
 
-relationship fb83f8c8-ebc3-ef24-3c0c-ad0faaee8ea6
-	fromColumn: FactEnrollmentDetail.Year
+relationship 22b93192-0021-c94b-5756-b609fba7775c
+	fromColumn: FactEnrollmentSummary.Year
 	toColumn: DimFallTerm.Year
 

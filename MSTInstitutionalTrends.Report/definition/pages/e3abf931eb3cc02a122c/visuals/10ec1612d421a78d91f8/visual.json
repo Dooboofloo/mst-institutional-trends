@@ -1,0 +1,105 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "10ec1612d421a78d91f8",
+  "position": {
+    "x": 0,
+    "y": 630,
+    "z": 0,
+    "height": 418,
+    "width": 1920,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactEnrollmentDetail"
+                    }
+                  },
+                  "Property": "Category Display"
+                }
+              },
+              "queryRef": "FactEnrollmentDetail.Category Display",
+              "nativeQueryRef": "Category Display",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactEnrollmentDetail"
+                    }
+                  },
+                  "Property": "StudentLevel"
+                }
+              },
+              "queryRef": "FactEnrollmentDetail.StudentLevel",
+              "nativeQueryRef": "StudentLevel",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Detailed Enrollment"
+                }
+              },
+              "queryRef": "Measures (2).Detailed Enrollment",
+              "nativeQueryRef": "Detailed Enrollment"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Category Snapshot Title"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -138,6 +138,60 @@ table 'Measures (2)'
 			)
 		lineageTag: a15aa8c9-6f42-4474-b5a3-18f12898fe97
 
+	measure 'Enrollment Share' =
+			
+			DIVIDE(
+			    [Detailed Enrollment],
+			    CALCULATE(
+			        [Detailed Enrollment],
+			        REMOVEFILTERS(FactEnrollmentDetail[Category])
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 15963e16-6497-4dbe-a4ae-1a6938c3ffc4
+
+	measure 'Selected Focus Year' =
+			
+			SELECTEDVALUE(
+			    DimFallTerm[Year],
+			    [Latest Enrollment Year]
+			)
+		formatString: 0
+		lineageTag: 2e4847f3-1b39-414f-b88c-0f0cc2ad0dae
+
+	measure 'Category Snapshot Title' =
+			
+			VAR FocusYear = [Selected Focus Year]
+			VAR StdntLevel =
+			    SELECTEDVALUE(
+			        FactEnrollmentDetail[StudentLevel],
+			        "All Student Levels"
+			    )
+			RETURN
+			    "Fall " & FORMAT(FocusYear, "0")
+			    & " Enrollment by Category"
+			    & IF(
+			        StdntLevel <> "All Student Levels",
+			        " — " & StdntLevel,
+			        ""
+			    )
+		lineageTag: 7851c111-3868-4e58-8ee4-5d01821f0923
+
+	measure 'Composition Trend Title' =
+			
+			VAR StdntLevel =
+			    SELECTEDVALUE(
+			        FactEnrollmentDetail[StudentLevel],
+			        "All Student Levels"
+			    )
+			RETURN
+			    IF(
+			        StdntLevel = "All Student Levels",
+			        "Enrollment Share by Category Over Time",
+			        StdntLevel & " Enrollment Share by Category Over Time"
+			    )
+		lineageTag: 99244b08-170d-46ca-95d7-edf19c23ae39
+
 	partition 'Measures (2)' = m
 		mode: import
 		source =

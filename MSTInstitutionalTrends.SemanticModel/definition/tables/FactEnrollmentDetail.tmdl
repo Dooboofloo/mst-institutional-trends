@@ -49,6 +49,62 @@ table FactEnrollmentDetail
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Category Display' =
+			
+			SWITCH(
+			    TRUE(),
+			
+			    FactEnrollmentDetail[Category] = "Degree Seeking First-Time Freshmen",
+			        "First-Time Degree-Seeking Freshmen",
+			
+			    FactEnrollmentDetail[Category] = "Other Degree Seeking",
+			        "Other Undergraduate Degree-Seeking",
+			
+			    FactEnrollmentDetail[StudentLevel] = "Undergraduate"
+			        && FactEnrollmentDetail[Category] = "Non-Degree Seeking",
+			        "Undergraduate — Non-Degree Seeking",
+			
+			    FactEnrollmentDetail[StudentLevel] = "Graduate"
+			        && FactEnrollmentDetail[Category] = "Non-Degree Seeking",
+			        "Graduate — Non-Degree Seeking",
+			
+			    FactEnrollmentDetail[Category]
+			)
+		lineageTag: 9f0dcf8d-329a-473a-ac40-dc08ebe1c2e4
+		summarizeBy: none
+		sortByColumn: 'Category Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Sort' =
+			
+			SWITCH(
+			    TRUE(),
+			
+			    FactEnrollmentDetail[Category] = "Degree Seeking First-Time Freshmen", 1,
+			
+			    FactEnrollmentDetail[Category] = "Other Degree Seeking", 2,
+			
+			    FactEnrollmentDetail[Category] = "Dual-Credit High School", 3,
+			
+			    FactEnrollmentDetail[StudentLevel] = "Undergraduate" && FactEnrollmentDetail[Category] = "Non-Degree Seeking", 4,
+			
+			    FactEnrollmentDetail[Category] = "Master's", 5,
+			
+			    FactEnrollmentDetail[Category] = "Doctoral-research/scholarship", 6,
+			
+			    FactEnrollmentDetail[StudentLevel] = "Graduate" && FactEnrollmentDetail[Category] = "Non-Degree Seeking", 7,
+			
+			    99
+			)
+		formatString: 0
+		lineageTag: 7facc7ab-1ac8-44aa-932a-d0c0ac65e498
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactEnrollmentDetail = m
 		mode: import
 		queryGroup: '03 Model'

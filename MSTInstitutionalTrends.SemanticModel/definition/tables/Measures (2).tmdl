@@ -1,0 +1,109 @@
+table 'Measures (2)'
+	lineageTag: 1f13b694-e69c-4a9c-9795-231ab7187b3d
+
+	measure Enrollment = SUM(FactEnrollmentSummary[Enrollment])
+		formatString: 0
+		lineageTag: 0e2b3758-bd17-4aae-8c27-63c12a832859
+
+		changedProperty = IsHidden
+
+	measure 'Total Enrollment' =
+			
+			CALCULATE(
+			    [Enrollment],
+			    FactEnrollmentSummary[StudentLevel] = "All Students"
+			)
+		formatString: 0
+		lineageTag: ac391b37-455c-4a17-bef2-56cdfd9e0aa9
+
+		changedProperty = IsHidden
+
+	measure 'Undergraduate Enrollment' =
+			
+			CALCULATE(
+			    [Enrollment],
+			    FactEnrollmentSummary[StudentLevel] = "Undergraduate"
+			)
+		formatString: 0
+		lineageTag: aa2bfeea-2181-47d2-aa72-2eb180ff3547
+
+		changedProperty = IsHidden
+
+	measure 'Graduate Enrollment' =
+			
+			CALCULATE(
+			    [Enrollment],
+			    FactEnrollmentSummary[StudentLevel] = "Graduate"
+			)
+		formatString: 0
+		lineageTag: d2a5c66e-10f5-4d16-a663-c3ab105c44d5
+
+		changedProperty = IsHidden
+
+	measure 'Detailed Enrollment' = SUM(FactEnrollmentDetail[Enrollment])
+		formatString: 0
+		lineageTag: 946599ad-527d-4a98-b4aa-4028eb806995
+
+		changedProperty = IsHidden
+
+	measure 'Latest Enrollment Year' =
+			
+			MAXX(
+			    ALL(DimFallTerm),
+			    DimFallTerm[Year]
+			)
+		formatString: 0
+		lineageTag: 8a9de536-c014-462e-9333-c18642e722f3
+
+		changedProperty = IsHidden
+
+	measure 'Latest Total Enrollment' =
+			
+			VAR LatestYear = [Latest Enrollment Year]
+			RETURN CALCULATE(
+			    [Total Enrollment],
+			    DimFallTerm[Year] = LatestYear
+			)
+		formatString: 0
+		lineageTag: 734e762c-f979-4c0b-be44-dc3a1a408b20
+
+		changedProperty = IsHidden
+
+	measure 'Latest Undergraduate Enrollment' =
+			
+			VAR LatestYear = [Latest Enrollment Year]
+			RETURN CALCULATE(
+			    [Undergraduate Enrollment],
+			    DimFallTerm[Year] = LatestYear
+			)
+		formatString: 0
+		lineageTag: e94b8b2d-48e3-4742-9d58-5d64155955f4
+
+		changedProperty = IsHidden
+
+	measure 'Latest Graduate Enrollment' =
+			
+			VAR LatestYear = [Latest Enrollment Year]
+			RETURN CALCULATE(
+			    [Graduate Enrollment],
+			    DimFallTerm[Year] = LatestYear
+			)
+		formatString: 0
+		lineageTag: 417df597-1cd2-4ec4-a26b-7c1b1b91e71c
+
+		changedProperty = IsHidden
+
+	partition 'Measures (2)' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Placeholder = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Placeholder", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Placeholder"})
+				in
+				    #"Removed Columns"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

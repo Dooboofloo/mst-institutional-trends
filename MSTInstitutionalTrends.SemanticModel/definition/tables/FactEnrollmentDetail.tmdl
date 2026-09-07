@@ -19,18 +19,24 @@ table FactEnrollmentDetail
 
 	column Term
 		dataType: string
+		isHidden
 		lineageTag: b521992f-2ba2-46cf-8001-2251d5076f64
 		summarizeBy: none
 		sourceColumn: Term
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
 	column Year
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: fcac22a9-7cc8-48d2-bd15-1ad07189f784
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Year
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

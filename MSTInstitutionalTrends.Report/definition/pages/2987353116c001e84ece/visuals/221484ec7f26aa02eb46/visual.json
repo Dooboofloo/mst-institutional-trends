@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "221484ec7f26aa02eb46",
+  "position": {
+    "x": 550.13692891739754,
+    "y": 0,
+    "z": 2,
+    "height": 132.10524937819088,
+    "width": 734.72234585678757,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Latest Enrollment Year"
+                }
+              },
+              "queryRef": "Measures (2).Latest Enrollment Year",
+              "nativeQueryRef": "Latest Enrollment Year"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Latest Total Enrollment"
+                }
+              },
+              "queryRef": "Measures (2).Latest Total Enrollment",
+              "nativeQueryRef": "Latest Total Enrollment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Latest Undergraduate Enrollment"
+                }
+              },
+              "queryRef": "Measures (2).Latest Undergraduate Enrollment",
+              "nativeQueryRef": "Latest Undergraduate Enrollment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Latest Graduate Enrollment"
+                }
+              },
+              "queryRef": "Measures (2).Latest Graduate Enrollment",
+              "nativeQueryRef": "Latest Graduate Enrollment"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures (2)"
+                  }
+                },
+                "Property": "Latest Enrollment Year"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

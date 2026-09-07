@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a5e4e6294cdbb8b3f283",
+  "position": {
+    "x": 10.857965702317058,
+    "y": 0,
+    "z": 0,
+    "height": 488.60845660426759,
+    "width": 539.27896321508047,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimFallTerm"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "DimFallTerm.Year",
+              "nativeQueryRef": "Year"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Total Enrollment"
+                }
+              },
+              "queryRef": "Measures (2).Total Enrollment",
+              "nativeQueryRef": "Total Enrollment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Undergraduate Enrollment"
+                }
+              },
+              "queryRef": "Measures (2).Undergraduate Enrollment",
+              "nativeQueryRef": "Undergraduate Enrollment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures (2)"
+                    }
+                  },
+                  "Property": "Graduate Enrollment"
+                }
+              },
+              "queryRef": "Measures (2).Graduate Enrollment",
+              "nativeQueryRef": "Graduate Enrollment"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

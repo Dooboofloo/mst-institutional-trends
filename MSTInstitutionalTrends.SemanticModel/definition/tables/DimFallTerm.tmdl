@@ -6,6 +6,9 @@ table DimFallTerm
 		lineageTag: cace1e53-fee2-4fb0-8be4-7975bc7c3f63
 		summarizeBy: none
 		sourceColumn: Term
+		sortByColumn: Year
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
@@ -13,7 +16,7 @@ table DimFallTerm
 		dataType: int64
 		formatString: 0
 		lineageTag: 156cb4d5-ffd8-4a73-9adb-3193d293f339
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Year
 
 		annotation SummarizationSetBy = Automatic

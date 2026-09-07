@@ -27,11 +27,12 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["Raw_FallEnrollment_ST","Stg_EnrollmentHeadcount","FactEnrollmentSummary","FactEnrollmentDetail","DimFallTerm","Audit_EnrollmentCoverage","Audit_EnrollmentCoverage_1992"]
+annotation PBI_QueryOrder = ["Raw_FallEnrollment_ST","Stg_EnrollmentHeadcount","FactEnrollmentSummary","FactEnrollmentDetail","DimFallTerm","Audit_EnrollmentCoverage","Audit_EnrollmentCoverage_1992","Measures (2)"]
 
 ref table FactEnrollmentSummary
 ref table FactEnrollmentDetail
 ref table DimFallTerm
+ref table 'Measures (2)'
 
 ref cultureInfo en-US
 

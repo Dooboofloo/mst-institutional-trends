@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 137.63836058463994,
         "y": 0
       },
       "nodes": [
         {
           "location": {
             "x": 334.18475118063,
-            "y": 4.93489082265819
+            "y": 11.103504350980927
           },
           "nodeIndex": "DimFallTerm",
           "nodeLineageTag": "6c3e7bbc-9a4d-4eb1-bd78-c0333c1744fc",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 50,
-            "y": -50.000000000000014
+            "x": 578,
+            "y": 167.16861352832274
           },
           "nodeIndex": "FactEnrollmentDetail",
           "nodeLineageTag": "4ac3f26e-c960-4c75-9a89-648c354669de",
@@ -36,13 +36,26 @@
         },
         {
           "location": {
-            "x": 618.36163941536006,
-            "y": -17.740116544906698
+            "x": 24.36163941536006,
+            "y": 160.16861352832274
           },
           "nodeIndex": "FactEnrollmentSummary",
           "nodeLineageTag": "c29edfee-cce2-44ee-8d09-838679c41a74",
           "size": {
             "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 837.63836058463994,
+            "y": 129.73372270566455
+          },
+          "nodeIndex": "Measures (2)",
+          "nodeLineageTag": "1f13b694-e69c-4a9c-9795-231ab7187b3d",
+          "size": {
+            "height": 104,
             "width": 234
           },
           "zIndex": 0

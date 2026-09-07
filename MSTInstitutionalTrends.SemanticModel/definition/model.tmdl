@@ -27,7 +27,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["Raw_FallEnrollment_ST","Raw_RetentionRates","Raw_GraduationRates_ST","Stg_EnrollmentHeadcount","FactEnrollmentSummary","FactEnrollmentDetail","DimFallTerm","FactRetention","FactGraduation","Audit_EnrollmentCoverage","Audit_EnrollmentCoverage_1992","Measures (2)","DimCohortYear","TmpFactGraduationDuplicate"]
+annotation PBI_QueryOrder = ["Raw_FallEnrollment_ST","Raw_RetentionRates","Raw_GraduationRates_ST","Stg_EnrollmentHeadcount","FactEnrollmentSummary","FactEnrollmentDetail","DimFallTerm","FactRetention","FactGraduation","Audit_EnrollmentCoverage","Audit_EnrollmentCoverage_1992","Measures (2)","DimCohortYear","TmpFactGraduationDuplicate","DataRoot"]
 
 ref table FactEnrollmentSummary
 ref table FactEnrollmentDetail

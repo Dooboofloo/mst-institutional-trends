@@ -93,6 +93,51 @@ table 'Measures (2)'
 
 		changedProperty = IsHidden
 
+	measure 'Previous Reported Enrollment Year' =
+			
+			VAR LatestYear = [Latest Enrollment Year]
+			RETURN MAXX(
+			    FILTER(
+			        ALL(DimFallTerm),
+			        DimFallTerm[Year] < LatestYear
+			    ),
+			    DimFallTerm[Year]
+			)
+		formatString: 0
+		lineageTag: b06677f5-dcc6-4cc6-a12b-3addfaf1eaa2
+
+	measure 'Previous Total Enrollment' =
+			
+			VAR PreviousReportedYear = [Previous Reported Enrollment Year]
+			RETURN CALCULATE(
+			    [Total Enrollment],
+			    REMOVEFILTERS(DimFallTerm),
+			    DimFallTerm[Year] = PreviousReportedYear
+			)
+		formatString: 0
+		lineageTag: 1ca981e9-d137-4cc8-9f34-b3e8a21785e5
+
+	measure 'Latest Enrollment Change' = [Latest Total Enrollment] - [Previous Total Enrollment]
+		formatString: 0
+		lineageTag: 287f3988-cabd-4cf0-b584-661afb4caac4
+
+	measure 'Latest Enrollment Change %' =
+			
+			DIVIDE(
+			    [Latest Enrollment Change],
+			    [Previous Total Enrollment]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 341e0b56-66e7-4b79-9de9-fa1bc7c9cded
+
+	measure 'Latest Enrollment Change Display' =
+			
+			FORMAT(
+			    [Latest Enrollment Change %],
+			    "+0.0%;-0.0%;0.0%"
+			)
+		lineageTag: a15aa8c9-6f42-4474-b5a3-18f12898fe97
+
 	partition 'Measures (2)' = m
 		mode: import
 		source =
